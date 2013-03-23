@@ -20,10 +20,9 @@ package net.dontdrinkandroot.utils.progressmonitor;
 import java.util.List;
 
 
-
 public interface ProgressMonitor {
 
-	void setProgress(int progress);
+	void setProgress(int percent);
 
 
 	int getProgress();

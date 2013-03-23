@@ -24,21 +24,25 @@ import net.dontdrinkandroot.utils.progressmonitor.ProgressMonitor;
 import net.dontdrinkandroot.utils.progressmonitor.ProgressStatus;
 
 
-
+/**
+ * A ProgressMonitor that does not update. Can be used if a progress monitor is required as an
+ * argument.
+ * 
+ * @author Philip W. Sorst <philip@sorst.net>
+ * 
+ */
 public class DummyProgressMonitor implements ProgressMonitor {
 
 	@Override
 	public void setProgress(int progress) {
 
-		// TODO Auto-generated method stub
-
+		/* Noop */
 	}
 
 
 	@Override
 	public int getProgress() {
 
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -46,15 +50,13 @@ public class DummyProgressMonitor implements ProgressMonitor {
 	@Override
 	public String getMessage() {
 
-		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 
 	@Override
 	public int getAccumulatedProgress() {
 
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -62,24 +64,21 @@ public class DummyProgressMonitor implements ProgressMonitor {
 	@Override
 	public String getAccumulatedMessage() {
 
-		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 
 	@Override
 	public String getAccumulatedMessage(String separator) {
 
-		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 
 	@Override
 	public void setMessage(String message) {
 
-		// TODO Auto-generated method stub
-
+		/* Noop */
 	}
 
 
@@ -93,16 +92,14 @@ public class DummyProgressMonitor implements ProgressMonitor {
 	@Override
 	public ProgressStatus getProgressStatus() {
 
-		// TODO Auto-generated method stub
-		return null;
+		return new ProgressStatus();
 	}
 
 
 	@Override
 	public ProgressStatus getProgressStatus(String separator) {
 
-		// TODO Auto-generated method stub
-		return null;
+		return new ProgressStatus();
 	}
 
 
