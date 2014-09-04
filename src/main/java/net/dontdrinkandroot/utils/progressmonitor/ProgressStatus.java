@@ -23,7 +23,8 @@ import java.io.Serializable;
 /**
  * This object holds the current status of a {@link ProgressMonitor}.
  */
-public class ProgressStatus implements Serializable {
+public class ProgressStatus implements Serializable
+{
 
 	/** The current message. */
 	private String message;
@@ -35,33 +36,30 @@ public class ProgressStatus implements Serializable {
 	/**
 	 * Create a new Progress with percentage set to zero and an empty message.
 	 */
-	public ProgressStatus() {
-
+	public ProgressStatus()
+	{
 		this.message = "";
 		this.progress = 0;
 	}
 
-
 	/**
 	 * Create a new Progress Status with the given percentage and message.
 	 */
-	public ProgressStatus(int percent, String message) {
-
+	public ProgressStatus(int percent, String message)
+	{
 		this.message = message;
 		this.progress = percent;
 	}
-
 
 	/**
 	 * Get the current message.
 	 * 
 	 * @return The current message.
 	 */
-	public final String getMessage() {
-
+	public final String getMessage()
+	{
 		return this.message;
 	}
-
 
 	/**
 	 * Set the current message.
@@ -69,22 +67,20 @@ public class ProgressStatus implements Serializable {
 	 * @param message
 	 *            The current message.
 	 */
-	public final void setMessage(final String message) {
-
+	public final void setMessage(final String message)
+	{
 		this.message = message;
 	}
-
 
 	/**
 	 * Get the current percentage.
 	 * 
 	 * @return The current percentage.
 	 */
-	public final Integer getProgress() {
-
+	public final Integer getProgress()
+	{
 		return this.progress;
 	}
-
 
 	/**
 	 * Set the current percentage.
@@ -92,8 +88,8 @@ public class ProgressStatus implements Serializable {
 	 * @param percent
 	 *            The current percentage.
 	 */
-	public final void setProgress(final Integer percent) {
-
+	public final void setProgress(final Integer percent)
+	{
 		this.progress = percent;
 	}
 

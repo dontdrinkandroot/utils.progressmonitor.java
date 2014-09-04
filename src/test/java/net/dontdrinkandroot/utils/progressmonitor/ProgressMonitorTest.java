@@ -17,18 +17,18 @@
  */
 package net.dontdrinkandroot.utils.progressmonitor;
 
-import net.dontdrinkandroot.utils.progressmonitor.ProgressMonitor;
 import net.dontdrinkandroot.utils.progressmonitor.impl.SimpleProgressMonitor;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 
-public class ProgressMonitorTest {
+public class ProgressMonitorTest
+{
 
 	@Test
-	public void testWorkflow() {
-
+	public void testWorkflow()
+	{
 		SimpleProgressMonitor rootMonitor = new SimpleProgressMonitor();
 		rootMonitor.setMessage("rootMessage");
 
@@ -189,10 +189,9 @@ public class ProgressMonitorTest {
 		Assert.assertEquals("rootMessage80", rootMonitor.getAccumulatedMessage());
 	}
 
-
 	@Test
-	public void testInvalidParameters() {
-
+	public void testInvalidParameters()
+	{
 		try {
 			new SimpleProgressMonitor(0, null);
 			Assert.fail("Exception expected");

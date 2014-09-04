@@ -20,37 +20,28 @@ package net.dontdrinkandroot.utils.progressmonitor;
 import java.util.List;
 
 
-public interface ProgressMonitor {
+public interface ProgressMonitor
+{
 
 	void setProgress(int percent);
 
-
 	int getProgress();
-
 
 	String getMessage();
 
-
 	int getAccumulatedProgress();
-
 
 	String getAccumulatedMessage();
 
-
 	String getAccumulatedMessage(String separator);
-
 
 	void setMessage(String message);
 
-
 	ProgressMonitor createChildMonitor(int startPercent, int endPercent);
-
 
 	ProgressStatus getProgressStatus();
 
-
 	ProgressStatus getProgressStatus(String separator);
-
 
 	List<String> getAccumulatedMessages();
 

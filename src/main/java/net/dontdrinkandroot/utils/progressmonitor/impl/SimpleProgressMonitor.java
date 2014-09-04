@@ -24,8 +24,8 @@ import net.dontdrinkandroot.utils.progressmonitor.ProgressMonitor;
 import net.dontdrinkandroot.utils.progressmonitor.ProgressStatus;
 
 
-
-public class SimpleProgressMonitor implements ProgressMonitor {
+public class SimpleProgressMonitor implements ProgressMonitor
+{
 
 	public static final String SEPARATOR = " - ";
 
@@ -40,22 +40,20 @@ public class SimpleProgressMonitor implements ProgressMonitor {
 	private int endPercent;
 
 
-	public SimpleProgressMonitor() {
-
+	public SimpleProgressMonitor()
+	{
 		/* Default constructor, noop */
 	}
 
-
-	public SimpleProgressMonitor(int progress, String message) {
-
+	public SimpleProgressMonitor(int progress, String message)
+	{
 		this.setProgress(progress);
 		this.setMessage(message);
 	}
 
-
 	@Override
-	public ProgressMonitor createChildMonitor(int startPercent, int endPercent) {
-
+	public ProgressMonitor createChildMonitor(int startPercent, int endPercent)
+	{
 		if (startPercent > endPercent) {
 			throw new IllegalArgumentException("startPercent must be smaller equals endPercent");
 		}
@@ -75,10 +73,9 @@ public class SimpleProgressMonitor implements ProgressMonitor {
 		return this.childMonitor = new SimpleProgressMonitor();
 	}
 
-
 	@Override
-	public void setMessage(String message) {
-
+	public void setMessage(String message)
+	{
 		if (message == null) {
 			throw new IllegalArgumentException("Message must not be null");
 		}
@@ -86,10 +83,9 @@ public class SimpleProgressMonitor implements ProgressMonitor {
 		this.message = message;
 	}
 
-
 	@Override
-	public void setProgress(int progress) {
-
+	public void setProgress(int progress)
+	{
 		if (progress < 0 || progress > 100) {
 			throw new IllegalArgumentException("Progress must be in [0, 100]");
 		}
@@ -98,24 +94,21 @@ public class SimpleProgressMonitor implements ProgressMonitor {
 		this.progress = progress;
 	}
 
-
 	@Override
-	public int getProgress() {
-
+	public int getProgress()
+	{
 		return this.progress;
 	}
 
-
 	@Override
-	public String getMessage() {
-
+	public String getMessage()
+	{
 		return this.message;
 	}
 
-
 	@Override
-	public int getAccumulatedProgress() {
-
+	public int getAccumulatedProgress()
+	{
 		if (this.childMonitor == null) {
 			return this.progress;
 		}
@@ -123,13 +116,12 @@ public class SimpleProgressMonitor implements ProgressMonitor {
 		int childAccumulatedProgress = this.childMonitor.getAccumulatedProgress();
 		int rangeSize = this.endPercent - this.startPercent;
 
-		return this.startPercent + (rangeSize * childAccumulatedProgress / 100);
+		return this.startPercent + rangeSize * childAccumulatedProgress / 100;
 	}
 
-
 	@Override
-	public String getAccumulatedMessage() {
-
+	public String getAccumulatedMessage()
+	{
 		if (this.childMonitor == null) {
 			return this.message;
 		}
@@ -137,10 +129,9 @@ public class SimpleProgressMonitor implements ProgressMonitor {
 		return this.message + SimpleProgressMonitor.SEPARATOR + this.childMonitor.getAccumulatedMessage();
 	}
 
-
 	@Override
-	public String getAccumulatedMessage(String separator) {
-
+	public String getAccumulatedMessage(String separator)
+	{
 		if (this.childMonitor == null) {
 			return this.message;
 		}
@@ -148,24 +139,21 @@ public class SimpleProgressMonitor implements ProgressMonitor {
 		return this.message + separator + this.childMonitor.getAccumulatedMessage(separator);
 	}
 
-
 	@Override
-	public ProgressStatus getProgressStatus() {
-
+	public ProgressStatus getProgressStatus()
+	{
 		return new ProgressStatus(this.getAccumulatedProgress(), this.getAccumulatedMessage());
 	}
 
-
 	@Override
-	public ProgressStatus getProgressStatus(String separator) {
-
+	public ProgressStatus getProgressStatus(String separator)
+	{
 		return new ProgressStatus(this.getAccumulatedProgress(), this.getAccumulatedMessage(separator));
 	}
 
-
 	@Override
-	public List<String> getAccumulatedMessages() {
-
+	public List<String> getAccumulatedMessages()
+	{
 		List<String> messages = new ArrayList<String>();
 		messages.add(this.message);
 		if (this.childMonitor != null) {
@@ -175,9 +163,8 @@ public class SimpleProgressMonitor implements ProgressMonitor {
 		return messages;
 	}
 
-
-	private void addAccumulatedMessages(List<String> messages) {
-
+	private void addAccumulatedMessages(List<String> messages)
+	{
 		messages.add(this.message);
 		if (this.childMonitor != null) {
 			this.childMonitor.addAccumulatedMessages(messages);

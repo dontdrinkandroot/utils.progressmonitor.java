@@ -25,87 +25,77 @@ import net.dontdrinkandroot.utils.progressmonitor.ProgressStatus;
 
 
 /**
- * A ProgressMonitor that does not update. Can be used if a progress monitor is required as an
- * argument.
+ * A ProgressMonitor that does not update. Can be used if a progress monitor is required as an argument.
  * 
  * @author Philip W. Sorst <philip@sorst.net>
  * 
  */
-public class DummyProgressMonitor implements ProgressMonitor {
+public class DummyProgressMonitor implements ProgressMonitor
+{
 
 	@Override
-	public void setProgress(int progress) {
-
+	public void setProgress(int progress)
+	{
 		/* Noop */
 	}
 
-
 	@Override
-	public int getProgress() {
-
+	public int getProgress()
+	{
 		return 0;
 	}
 
-
 	@Override
-	public String getMessage() {
-
+	public String getMessage()
+	{
 		return "";
 	}
 
-
 	@Override
-	public int getAccumulatedProgress() {
-
+	public int getAccumulatedProgress()
+	{
 		return 0;
 	}
 
-
 	@Override
-	public String getAccumulatedMessage() {
-
+	public String getAccumulatedMessage()
+	{
 		return "";
 	}
 
-
 	@Override
-	public String getAccumulatedMessage(String separator) {
-
+	public String getAccumulatedMessage(String separator)
+	{
 		return "";
 	}
 
-
 	@Override
-	public void setMessage(String message) {
-
+	public void setMessage(String message)
+	{
 		/* Noop */
 	}
 
-
 	@Override
-	public ProgressMonitor createChildMonitor(int startPercent, int endPercent) {
-
+	public ProgressMonitor createChildMonitor(int startPercent, int endPercent)
+	{
 		return this;
 	}
 
-
 	@Override
-	public ProgressStatus getProgressStatus() {
-
+	public ProgressStatus getProgressStatus()
+	{
 		return new ProgressStatus();
 	}
 
-
 	@Override
-	public ProgressStatus getProgressStatus(String separator) {
-
+	public ProgressStatus getProgressStatus(String separator)
+	{
 		return new ProgressStatus();
 	}
 
-
 	@Override
-	public List<String> getAccumulatedMessages() {
-
+	public List<String> getAccumulatedMessages()
+	{
 		return new ArrayList<String>();
 	}
 
